@@ -1,3 +1,4 @@
+Dockerfile
 # Gunakan official PHP image dengan Apache
 FROM php:8.2-apache
 
@@ -11,3 +12,4 @@ COPY index.php /var/www/html/
 EXPOSE 80
 
 # Server akan otomatis dijalankan oleh Apache
+
