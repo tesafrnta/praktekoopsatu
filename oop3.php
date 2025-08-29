@@ -1,7 +1,7 @@
 <?php
 class PersegiPanjang {
-    private $panjang;
-    private $lebar;
+    public $panjang;
+    public $lebar;
     public function __construct($panjang, $lebar) {
         $this->panjang = $panjang;
         $this->lebar = $lebar;
@@ -18,5 +18,6 @@ $persegi = new PersegiPanjang(8, 4);
 echo "Luas: " . $persegi->luas() . "\n";       
 echo "Keliling: " . $persegi->keliling() . "\n";  
 ?>
+
 
 
