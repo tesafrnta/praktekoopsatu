@@ -37,9 +37,9 @@ class Perpustakaan {
 // Contoh penggunaan
 $perpustakaan = new Perpustakaan();
 
-$buku1 = new Buku("Laskar Pelangi", "Andrea Hirata", 2005);
-$buku2 = new Buku("Bumi Manusia", "Pramoedya Ananta Toer", 1980);
-$buku3 = new Buku("Harry Potter dan Batu Bertuah", "J.K. Rowling", 1997);
+$buku1 = new Buku("Laskar Pelangi", "Andrea Hirata", 2005) <br>;
+$buku2 = new Buku("Bumi Manusia", "Pramoedya Ananta Toer", 1980) <br>;
+$buku3 = new Buku("Harry Potter dan Batu Bertuah", "J.K. Rowling", 1997) <br>;
 
 $perpustakaan->tambahBuku($buku1);
 $perpustakaan->tambahBuku($buku2);
