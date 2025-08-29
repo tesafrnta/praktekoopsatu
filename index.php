@@ -1,29 +1,51 @@
 <?php
-// index.php
-$nama = "Peserta Praktik";
-$waktu = date("Y-m-d H:i:s");
+class Buku {
+    private $judul;
+    private $penulis;
+    private $tahun;
+
+    public function __construct($judul, $penulis, $tahun) {
+        $this->judul = $judul;
+        $this->penulis = $penulis;
+        $this->tahun = $tahun;
+    }
+
+    public function getInfo() {
+        return "{$this->judul} | Penulis: {$this->penulis} | Tahun: {$this->tahun}";
+    }
+}
+
+class Perpustakaan {
+    private $daftarBuku = [];
+
+    public function tambahBuku(Buku $buku) {
+        $this->daftarBuku[] = $buku;
+    }
+
+    public function tampilkanBuku() {
+        if (empty($this->daftarBuku)) {
+            echo "Belum ada buku di perpustakaan.\n";
+            return;
+        }
+        echo "Daftar Buku di Perpustakaan:\n";
+        foreach ($this->daftarBuku as $index => $buku) {
+            echo ($index + 1) . ". " . $buku->getInfo() . "\n";
+        }
+    }
+}
+
+// Contoh penggunaan
+$perpustakaan = new Perpustakaan();
+
+$buku1 = new Buku("Laskar Pelangi", "Andrea Hirata", 2005);
+$buku2 = new Buku("Bumi Manusia", "Pramoedya Ananta Toer", 1980);
+$buku3 = new Buku("Harry Potter dan Batu Bertuah", "J.K. Rowling", 1997);
+
+$perpustakaan->tambahBuku($buku1);
+$perpustakaan->tambahBuku($buku2);
+$perpustakaan->tambahBuku($buku3);
+
+$perpustakaan->tampilkanBuku();
 ?>
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Website PHP di Hugging Face</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        .container { max-width: 600px; margin: 0 auto; }
-        .box { background: #f0f8ff; padding: 20px; border-radius: 10px; margin-top: 20px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Selamat Datang di Website PHP!</h1>
-        <p>Halo <strong><?= htmlspecialchars($nama) ?></strong></p>
-        <div class="box">
-            <p>Waktu server: <code><?= $waktu ?></code></p>
-            <p>Dijalankan di <strong>Docker</strong> di Hugging Face Spaces ✅</p>
-        </div>
-    </div>
-</body>
-</html>
 
